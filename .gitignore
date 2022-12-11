@@ -1,4 +1,4 @@
 # Project exclude paths
 /out/
-/Collections.iml/
 /.idea/
+/Collections.iml
