@@ -4,7 +4,78 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Main{
+
+
+
+
+    static Map<String, Integer> map = new HashMap<>();
+
+
+
+    public static void addNumberToMap(String s, Integer i){
+        if (map.containsKey(s) && map.get(s) == i){
+            throw new RuntimeException("Такое элемент уже есть");
+        }
+        map.put(s, i);
+    }
     public static void main(String[] args) {
+
+        //map
+
+        Random random = new Random();
+
+        map.put("a", random.nextInt(15));
+        map.put("b", random.nextInt(15));
+        map.put("c", random.nextInt(15));
+        map.put("d", random.nextInt(15));
+        map.put("e", random.nextInt(15));
+        map.put("f", random.nextInt(15));
+        map.put("g", random.nextInt(15));
+        map.put("h", random.nextInt(15));
+        map.put("i", random.nextInt(15));
+
+
+
+        //task1
+
+        String str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuffer sb =new StringBuffer();
+
+
+        Map<String, List<Integer>> map1 = new HashMap<>();
+        for (int i = 0; i < 5; i++) {
+            map1.put(String.valueOf(sb.append(str.charAt(random.nextInt(10)))), Arrays.asList(random.nextInt(1000), random.nextInt(1000), random.nextInt(1000)));
+        }
+
+        for (Map.Entry<String, List<Integer>> map: map1.entrySet()){
+            System.out.println(map.getKey() + " —> " + map.getValue());
+        }
+
+
+
+        Map<String, Integer> newMap = new HashMap<>();
+        for (Map.Entry<String, List<Integer>> map:
+        map1.entrySet()) {
+            int sum = map.getValue().stream().mapToInt(Integer::intValue).sum();
+            newMap.put(map.getKey(), sum );
+        }
+        for (Map.Entry<String, Integer> map: newMap.entrySet()){
+            System.out.println(map.getKey() + " —> " + map.getValue());
+        }
+
+
+
+
+        //task2
+        Map<Integer, String> map2 = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            map2.put(random.nextInt(), String.valueOf(sb.append(str.charAt(random.nextInt(10)))));
+        }
+
+        System.out.println(map2);
+
+
+
 
 
         //example();

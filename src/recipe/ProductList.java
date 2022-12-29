@@ -1,22 +1,24 @@
 package recipe;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class ProductList {
-    private Set<Product> products = new HashSet<>();
 
-    public void add(Product product) {
-        if(products.contains(product)) {
-            throw new IllegalArgumentException("Такой продукт уже есть");
+
+    private Map<Product, Integer> products = new HashMap<>();
+
+    public void addProduct(Product product, Integer count){
+        if (count<=0){
+            count = 1;
         }
-        products.add(product);
+        products.put(product, count);
     }
 
-    public void remove(Product product) {
-        if (!products.remove(product)){
-            throw new IllegalArgumentException("Такой продукт уже есть");
-        };
+    public Double getFullPrice(Product product) {
+        return product.getCount() * product.getPrice();
     }
 
 
