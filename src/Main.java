@@ -6,6 +6,8 @@ import java.util.*;
 public class Main{
 
 
+    
+    System.out.println(products2);
 
 
     static Map<String, Integer> map = new HashMap<>();
