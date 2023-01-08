@@ -8,6 +8,7 @@ import java.util.Set;
 public class ProductList {
 
 
+    private Set<Product> products = new HashSet<>();
     private Map<Product, Integer> products = new HashMap<>();
 
     public void addProduct(Product product, Integer count){
